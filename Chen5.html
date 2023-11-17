@@ -22,7 +22,12 @@
         const marcado = document.getElementById("caixa").checked;
         console.log(marcado);
         const botao = document.getElementsByTagName("button")[0];
-        botao.addEventListener("",function(){});
+        botao.addEventListener("",function(){
+        const divi = document.createElement("div");
+        const imagem = document.createElement("img");
+        imagem.src = "https://ichef.bbci.co.uk/news/660/amz/worldservice/live/assets/images/2015/09/26/150926165742__85730600_monkey2.jpg";divi.appendChild(imagem);
+        document.body.appendChild(divi);
+        });
         if(marcado)
             botao.style.display = "inline";
         else

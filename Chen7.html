@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 7</title>
+    <style>
+        body{
+            background-image: url(https://ichef.bbci.co.uk/news/660/amz/worldservice/live/assets/images/2015/09/26/150926165742__85730600_monkey2.jpg);
+            background-repeat: round;
+        }
+        h2,h3{
+            text-align: center;
+        }
+        div{
+            margin-left: 490px;
+            text-align: center;
+            width: 250px;
+            height: 100px;
+            background-color: rgb(255, 255, 255);
+            padding: 50px;
+            border-radius: 20px;
+            border: 5px solid;
+            border-style: outset;
+        }
+        input[type="text"]{
+            width: 250px;
+            height: 25px;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+        button[type="submit"]{
+            width: 100px;
+            margin-top: 5px;
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 15px;
+        }
+        input[type="text"]:focus{
+            outline: 1px solid black;
+            
+        }
+    </style>
+</head>
+<body style="font-size: 20px;">
+    <h2>Exemplo 7</h2>
+    <h3>Validação de Formulário</h3>
+    <div>
+        <label for="idade">Idade</label><br>
+        <input name="idade" id="idade" type="text"> <br>
+        <button id="enviar" type="submit" onclick="validar()">Enviar</button>
+        <p id="msg" style="color: black;"></p>
+    </div>
+    <script>
+        function validar(){
+            const id = document.getElementById("idade").value;
+            let texto;
+            if(isNaN(id) || id < 1 || id> 100)
+                texto = "Idade Inválida!";
+            else
+                texto = "Idade Ok!";
+                document.getElementById("msg").innerHTML = texto;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2</title>
+    <style>
+        body{
+            background-image: url(https://s1.static.brasilescola.uol.com.br/be/2022/06/paisagem-natural-floresta.jpg);
+        }
+    </style>
+</head>
+<body>
+    <img onclick="trocar();" id="imagem" src="https://static.escolakids.uol.com.br/2023/08/gorila-espalda-prateada.jpg" width="200" height="200"  alt="smile"> <br> <br> <br>
+    <script>
+        let modo=0;
+        function trocar(){
+            if(modo==0){
+                document.getElementById("imagem").src = "https://s2.glbimg.com/c1JRwu3i1sK4Uhr1bsm-54MzxiQ=/e.glbimg.com/og/ed/f/original/2015/06/30/shabani.jpg";
+                modo=1;
+            }else{
+                document.getElementById("imagem").src = "https://static.escolakids.uol.com.br/2023/08/gorila-espalda-prateada.jpg";
+                modo=0;
+            }
+        }
+    </script>
+</body>
+</html>

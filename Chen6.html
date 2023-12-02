@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 6</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+
+        body{
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background-image: url(https://static.escolakids.uol.com.br/2019/07/coala.jpg);
+        }
+        form{
+            background-color: rgb(255, 255, 255);
+            padding: 50px;
+            border-radius: 20px;
+            border: 6px solid;
+            border-style: outset;
+            margin: auto;
+            width: 60%;
+        }
+        input[type="text"]{
+            width: 240px;
+            height: 25px;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+        input[type="text"]:focus{
+            outline: 1px solid hsla(0, 0%, 0%, 0.8);
+        }
+        input[type="submit"]{
+            font-size: 18px;
+            border-radius: 6px;
+            padding: 4px;
+            width: 100px;
+            margin-top: 6px;
+        }
+        h2,h3{
+            color: white;
+        }
+    </style>
+</head>
+<body style="font-size: 26px;">
+    <h2>Exemplo 6</h2>
+    <h3>Validação de formulário</h3>
+    <form name="formulario" action="cadastro.php" onsubmit="return validarFormulario();" method="post">
+        <label for="nome">Nome:</label>
+        <input name="nome" id="nome" type="text"> <br>
+        <input id="enviar" type="submit" value="Enviar">
+    </form>
+    <script>
+        function validarFormulario() {
+            let dados = document.forms["formulario"]["nome"].value;
+            if (dados == "") {
+                alert("Preencha o nome corretamente!");
+            return false;
+        }
+    }
+    </script>
+</body>
+</html>

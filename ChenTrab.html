@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>To Do List</title>
+    <style>
+        
+    </style>
 </head>
 <body style="background-color: aqua;">
         <nav>
             <div class="logo">Chencode</div>
             <div class="buttons"></div>
-                <a><button class="tarefas" onclick="adicionarTarefa();">Nova tarefa</button></a>
-                <a><button class="tarefas" onclick="mostrarLista();">Lista de tarefas</button></a>
+            <ul>
+                <li><button class="tarefas" onclick="adicionarTarefa();">Nova tarefa</button></li>
+                <li><button class="tarefas" onclick="mostrarLista();">Lista de tarefas</button></li>
             </ul>
         </nav>
 
@@ -84,20 +88,6 @@
 
         function excluirTarefa(botaoExcluir) {
             let tarefa = botaoExcluir.parentElement;
-            tarefa.remove();
-        }
-
-        function editarTarefa(botaoEditar) {
-            adicionarTarefa();
-            let tarefa = botaoEditar.parentElement;
-            tarefaEmEdicao = tarefa;
-
-            let titulo = tarefa.querySelector("strong").innerText;
-            let descricao = tarefa.innerText.split(":")[1].trim();
-
-            document.getElementById("titulo").value = titulo;
-            document.getElementById("descricao").value = descricao;
-
             tarefa.remove();
         }
     </script>

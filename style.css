@@ -23,6 +23,7 @@ nav {
     align-items: center;
     color: black;
 }
+
 .logo {
     font-weight: 800;
     font-size: 25px;
@@ -150,4 +151,10 @@ section.sobre{
     border-radius: 10px;
     cursor: pointer;
     margin: 0 10px;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
 }

@@ -4,15 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Home</title>
+    <title>To Do List</title>
 </head>
-<body style="background-image: url(https://s1.static.brasilescola.uol.com.br/be/conteudo/images/cavalo.jpg);">
-    <nav>
-        <div class="logo">Lista de Tarefas</div>
-                <div class="buttons">
-                    <a href="#"><button class="tarefas1">Cadastrar</button></a>
-                    <a href="#"><button class="tarefas2">Exibir</button></a>
-                </div>
-    </nav>
+<body style="background-color: aqua;">
+        <nav>
+            <div class="logo">Chencode</div>
+            <div class="buttons"></div>
+                <a><button class="tarefas" onclick="adicionarTarefa();">Nova tarefa</button></a>
+                <a><button class="tarefas" onclick="mostrarLista();">Lista de tarefas</button></a>
+            </ul>
+        </nav>
+
+    <div id="addtarefa">
+        <h2>Adicione uma tarefa!</h2>
+        <form onsubmit="Enviar(); return false;">
+            <input type="text" id="titulo" placeholder="Título">
+            <input type="text" id="descricao" placeholder="Descrição">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div id="listatarefa">
+        <h2>Lista de Tarefas</h2>
+        <div class="lista">
+
+        </div>
+    </div>
+
+    <script>
+        let modo = 1;
+        const listadisplay = document.getElementById("listatarefa").style;
+        const novatarefa = document.getElementById("addtarefa").style;
+        let inputtitulo = "";
+        let inputdesc = "";
+        let tarefaEmEdicao = null;
+        
+        function mostrarLista() {   
+            if (modo == 1) {
+                listadisplay.display = "block";
+                novatarefa.display = "none";
+                modo = 0;
+            }
+        }
+        
+        function adicionarTarefa() {
+            if (modo == 0) {
+                listadisplay.display = "none";
+                novatarefa.display = "block";
+                modo = 1;
+                tarefaEmEdicao = null;
+                document.getElementById("titulo").value = "";
+                document.getElementById("descricao").value = "";
+            }
+        }
+
+        function exibirTarefa(titulo, descricao) {
+            let lista = document.querySelector(".lista");
+            let tarefa = document.createElement("div");
+            tarefa.innerHTML = "<p><strong>" + titulo + "</strong>: " + descricao + " <button onclick=\"editarTarefa(this)\">Editar</button> <button onclick=\"excluirTarefa(this)\">Excluir</button></p>";
+            lista.appendChild(tarefa);
+        }
+
+        function Enviar() {
+            inputtitulo = document.getElementById("titulo").value;
+            inputdesc = document.getElementById("descricao").value;
+
+            if (tarefaEmEdicao) {
+
+                tarefaEmEdicao.querySelector("strong").innerText = inputtitulo;
+                tarefaEmEdicao.querySelector("p").innerText = inputtitulo + ": " + inputdesc;
+                tarefaEmEdicao = null;
+            } else {
+
+                exibirTarefa(inputtitulo, inputdesc);
+            }
+
+            adicionarTarefa();
+        }
+
+        function excluirTarefa(botaoExcluir) {
+            let tarefa = botaoExcluir.parentElement;
+            tarefa.remove();
+        }
+
+        function editarTarefa(botaoEditar) {
+            adicionarTarefa();
+            let tarefa = botaoEditar.parentElement;
+            tarefaEmEdicao = tarefa;
+
+            let titulo = tarefa.querySelector("strong").innerText;
+            let descricao = tarefa.innerText.split(":")[1].trim();
+
+            document.getElementById("titulo").value = titulo;
+            document.getElementById("descricao").value = descricao;
+
+            tarefa.remove();
+        }
+    </script>
 </body>
 </html>

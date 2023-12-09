@@ -48,6 +48,7 @@ nav {
 .buttons {
     display: flex;
     align-items: center;
+    
 }
 .prova{
     font-weight: bold;
@@ -151,6 +152,9 @@ section.sobre{
     border-radius: 10px;
     cursor: pointer;
     margin: 0 10px;
+}
+.tarefas:hover {
+    background-color: #dbdbdb;
 }
 nav ul{
     display: flex;
